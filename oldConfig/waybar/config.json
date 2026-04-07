@@ -1,0 +1,33 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "bottom",
+	"reload_style_on_change":true,
+
+	"height":20,
+	"margin-bottom":5,
+	"margin-left": 5,
+	"margin-right":5,
+
+	"modules-left": [
+		"clock",
+		"mpris",
+		"tray"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"custom/lock",
+		"custom/notification",
+		"network",
+		"memory",
+		"cpu",
+		"wireplumber",
+		"clock#time",
+		"battery",
+		"power-profiles-daemon"
+	],
+	"include": ["~/.config/waybar/modules.jsonc"]
+}

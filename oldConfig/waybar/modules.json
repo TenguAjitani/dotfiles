@@ -1,0 +1,121 @@
+{
+	"hyprland/workspaces": {
+		"all-outputs": true,
+		"format": "{name}",
+		"on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+		"on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+	},
+	
+	"mpris": {
+		"format": "{player_icon} <span color='#ce5987'>{dynamic}</span>",
+		"format-paused": "{status_icon} <span color='#ce5987'><i>{dynamic}</i></span>",
+		"dynamic-order": ["title", "artist", "album"],
+		"title-len": 30,
+		"artist-len": 30,
+		"album-len": 15,
+		"dynamic-separator": "<b>/</b>",
+		"player-icons": {
+			"default": "▶",
+			"mpv": ""
+		},
+		"status-icons": {
+			"paused": "⏸"
+		},
+		// "ignored-players": ["firefox"]
+	},
+	
+	"clock": {
+		"format": "<span color='#ee5396'></span> {:%A %e %B}",
+		"tooltip": false
+	},
+	
+	"custom/lock":{
+		"format": "",
+		"on-click": "systemctl sleep",
+		"tooltip": false
+	},
+	
+	"custom/notification":{
+		"format": "󱅫",
+		"on-click": "swaync-client -t -sw",
+		"tooltip": false
+	},
+		
+
+	"network": {
+        	// "interface": "wlp2s0", // (Optional) To force the use of this interface
+        	"format-wifi": "<span color='#94d1ef'></span>  {essid}  ",
+        	"format-ethernet": "<span color='#e7fcfe'></span>  {ifname}",
+        	"format-linked": "<span color='#e7fcfe'></span>  {ifname} (No IP)",
+		"format": "<span color='#e7fcfe'></span>  Connected",
+        	"format-disconnected": "<span color='#e7fcfe'></span>  Disconnected",
+	        "interval": 60
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": " {}%"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"format": " {usage}%"
+	},
+	
+	"wireplumber": {
+		"on-click": "pavucontrol",
+		"on-click-right": "amixer sset Master toggle 1>/dev/null",
+		"format": "<span foreground='#a2809e'>{icon}</span> {volume}%",
+		"format-muted": "<span foreground='#a2809e'></span> Muted",
+		"format-icons": {
+		    "headphone": " ",
+		    "hands-free": " ",
+		    "headset": " ",
+		    "phone": " ",
+		    "portable": " ",
+		    "car": " ",
+		    "default": [" ", " ", " "]
+		},
+	},
+
+	"tray": {
+		"icon-size": 15
+	},
+
+	"clock#time": {
+		"format": "<span color='#e57474'></span> {:%H:%M}",
+		"tooltip": false
+	},
+		
+	"battery": {
+		"interval": 2,
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "<span color='#f7d0df'>{icon}</span> {capacity}%",
+		"format-charging": "<span color='#8ccf7e'></span> {capacity}%",
+		"format-plugged": "<span color='#8ccf7e'></span> {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "<span color='#e57474'></span>",
+			"performance": "<span color='#e57474'></span>",
+			"balanced": "<span color='#dadada'></span>",
+			"power-saver": "<span color='#8ccf7e'></span>"
+		}
+	}
+}
+

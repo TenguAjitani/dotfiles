@@ -1,0 +1,189 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+	"reload_style_on_change":true,
+
+	"modules-left": [
+		"clock",
+		"group/expand-right"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"group/expand-left",
+		"network",
+    "cava",
+		"wireplumber",
+		"battery",
+		"custom/lock"
+	],
+
+	"hyprland/workspaces": {
+		"format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "empty": ""
+    },
+    "persistent-workspaces": {
+      "*": [ 1,2,3,4,5 ]
+    }
+	},
+  "custom/expand-right": {
+      "format": " ",
+      "tooltip": false
+  },
+  "group/expand-right": {
+      "orientation": "horizontal",
+      "drawer": {
+          "transition-duration": 600,
+          "transition-to-right": true,
+          "click-to-reveal": false
+      },
+      "modules": ["custom/expand-right","hyprland/window","mpris"],
+  },
+	"hyprland/window": {
+		"disable-scroll": true,
+		"max-length": 40,
+		"on-click": "activate"
+	},
+	
+	"mpris": {
+		"format": "{player_icon} <span color='#fdcdb3'>{dynamic}</span>",
+		"format-paused": "{status_icon} <span color='#fdcdb3'><i>{dynamic}</i></span>",
+		"dynamic-order": ["title", "artist"],
+		"title-len": 30,
+		"artist-len": 30,
+		"dynamic-separator": "<b><span color='#edeef5'>/</span></b>",
+		"player-icons": {
+			"default": "▶",
+			"mpv": ""
+		},
+		"status-icons": {
+			"paused": "⏸"
+		},
+		"ignored-players": ["firefox"]
+	},
+	
+	"clock": {
+		"format": " {:%I:%M %p 󰸗 %a, %b %d}",
+		"tooltip": false
+	},
+	
+	"custom/lock":{
+		"format": "",
+		"on-click": "systemctl sleep",
+		"tooltip": false
+	},
+
+	"network": {
+    "format-wifi": "  Connected",
+    "format-ethernet":"  Ethernet",
+    "format-disconnected": "  Disconnected",
+    "tooltip-format-disconnected": "Error",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} 🖧 ",
+    "on-click": "kitty nmtui"
+  },
+  "custom/expand-left": {
+      "format": "",
+      "tooltip": false
+  },
+  "custom/endpoint":{
+      "format": "|",
+      "tooltip": false
+  },
+  "group/expand-left": {
+      "orientation": "horizontal",
+      "drawer": {
+          "transition-duration": 600,
+          "transition-to-left": true,
+          "click-to-reveal": true
+      },
+      "modules": ["custom/expand-left","tray","power-profiles-daemon","cpu","memory","custom/endpoint"],
+  },
+	"memory": {
+		"interval": 5,
+		"format": " {}%"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"format": " {usage}%"
+	},
+
+	"cava": {
+    "framerate": 60,
+    "autosens": 1,
+    "bars": 12,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": true,
+    "noise_reduction": 0.77,
+    "input_delay": 0,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+
+	"wireplumber": {
+		"on-click": "pavucontrol",
+		"on-click-right": "amixer sset Master toggle 1>/dev/null",
+		"format": "{icon} {volume}%",
+		"format-muted": " Muted",
+		"format-icons": {
+		    "headphone": " ",
+		    "hands-free": " ",
+		    "headset": " ",
+		    "phone": " ",
+		    "portable": " ",
+		    "car": " ",
+		    "default": [" ", " ", " "]
+		},
+	},
+
+	"tray": {
+		"icon-size": 15,
+    "spacing": 10
+	},
+		
+	"battery": {
+		"interval": 2,
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "<span color='#c7d1e3'>{icon}</span> {capacity}%",
+		"format-charging": "<span color='#8ccf7e'></span> {capacity}%",
+		"format-plugged": "<span color='#8ccf7e'></span> {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "<span color='#e57474'></span>",
+			"performance": "<span color='#e57474'></span>",
+			"balanced": "<span color='#dadada'></span>",
+			"power-saver": "<span color='#8ccf7e'></span>"
+		}
+	}
+}
+
