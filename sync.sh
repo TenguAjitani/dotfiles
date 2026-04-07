@@ -1,7 +1,6 @@
 #!/bin/bash
 
-dst_dir=~/.git/dotfiles
-
+dst_dir=~/.gitfiles/dotfiles
 mkdir -p "$dst_dir"
 
 files=(
@@ -9,34 +8,34 @@ files=(
   ~/.config/ghostty
   ~/.config/quickshell
   ~/.config/rofi
-  ~/Pictures
+  ~/Pictures/swwwWallpapers
+  ~/Pictures/Wallpapers
   ~/.zshrc
 )
 
 sync_files() {
-  for file in "${files[@]}"; do
-    if [[ "$file" == "$HOME/Pictures" ]]; then
-      rsync -av --exclude="screenshot" "$file/" "$dst_dir/Pictures"
-    elif [[ "$file" == $HOME/.config/* ]]; then
-      rsync -av "$file" "$dst_dir/.config/"
-    else
-      rsync -av "$file" "$dst_dir/"
-    fi
-  done
+  local filepath="$1"
+  local relative="${filepath#$HOME/}" #removes home directory prefix
+  local dst="$dst_dir/$relative"
 
-  echo "going to dotfiles..."
-
-  sleep 1
-
-  cd "$dst_dir"
-
-  echo "performing git shits..."
-
-  git add .
-
-  git commit -m "Sync files"
+  if [ ! -L "$filepath" ]; then
+    mkdir -p "$(dirname "$dst")"
+    mv "$filepath" "$dst"
+    ln -s "$dst" "$filepath"
+    echo "Linked: $relative"
+  else
+    echo "Skip linking: $filename is already a symlink."
+  fi
 }
 
 # Sync files
-sync_files
+for filepath in "${files[@]}"; do
+  sync_files "$filepath"
+done
+
+echo "going to dotfile folder"
+
+cd ~/.gitfiles/dotfiles/
+git add .
+git commit -m "Sync Files"
 echo "your shit is ready to be PUSH PUSH PUSH... ...ed"

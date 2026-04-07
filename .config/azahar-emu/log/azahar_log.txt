@@ -1,9 +1,0 @@
-[   0.249410] Input <Info> input_common/udp/client.cpp:StartCommunication:206: Starting communication with UDP input server on 127.0.0.1:26760
-[   0.357985] Frontend <Info> citra_qt/citra_qt.cpp:GMainWindow:374: Azahar Version: 2123.1.r1.g48db1c1 | master-48db1c1
-[   0.357998] Frontend <Info> citra_qt/citra_qt.cpp:GMainWindow:389: Host CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz | AVX512 | FMA
-[   0.358029] Frontend <Info> citra_qt/citra_qt.cpp:GMainWindow:391: Host OS: Arch Linux
-[   0.358048] Frontend <Info> citra_qt/citra_qt.cpp:GMainWindow:394: Host RAM: 7.55 GiB
-[   0.358050] Frontend <Info> citra_qt/citra_qt.cpp:GMainWindow:395: Host Swap: 8.00 GiB
-[   0.427325] Loader <Warning> core/loader/loader.cpp:GetLoader:167: File /home/tengu/Azahar/Pokemon Alpha Sapphire (Europe) (En,Ja,Fr,De,Es,It,Ko) (Rev 2).zcci has a different type than its extension.
-[   0.434818] Loader <Warning> core/loader/loader.cpp:GetLoader:167: File /home/tengu/Azahar/Pokemon X (Japan) (En,Ja,Fr,De,Es,It,Ko) (Rev 1).zcci has a different type than its extension.
-[   0.434818] Loader <Warning> core/loader/loader.cpp:GetLoader:167: File /home/tengu/Azahar/Pokemon X (Japan) (En,Ja,Fr,De,Es,It,Ko) (Rev 1).zcci has a different type than its extension.
